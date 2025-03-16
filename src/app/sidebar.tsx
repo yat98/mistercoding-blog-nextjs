@@ -1,6 +1,7 @@
 import { useColorModeValue } from "@/components/ui/color-mode"
 import { AvatarFallback, AvatarImage, AvatarRoot, Box, CloseButton, Flex, FlexProps, Text, VStack, Link as LinkChakraUI, BoxProps, IconButton } from "@chakra-ui/react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { FiMenu } from "react-icons/fi"
 
 interface LinkItemProps {
@@ -20,6 +21,8 @@ interface NavItemProps extends FlexProps {
 }
 
 const NavItem = ({ url, children, ...rest }: NavItemProps) => { 
+  const pathName = usePathname()
+
   return (
     <LinkChakraUI
       as={Link}
@@ -33,7 +36,7 @@ const NavItem = ({ url, children, ...rest }: NavItemProps) => {
           borderRadius={"lg"}
           role="group"
           cursor="pointer"
-          color={"white"}
+          color={pathName === url ? "yellow.400" : "white"}
           _hover={{
             color: 'yellow.500',
             fontWeight: 'bold',
@@ -114,15 +117,6 @@ export const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
             <FiMenu />
           </IconButton>
       </Flex>
-
-      <Box ml={8}>
-        <Text fontSize={"xl"} fontWeight={"bold"}>
-          John Dixon
-        </Text>
-        <Text fontSize={"sm"}>
-          Software Engineer
-        </Text>
-      </Box>
     </>
   )
 }
