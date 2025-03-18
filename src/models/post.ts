@@ -1,128 +1,115 @@
 export interface Post {
-  id: number
-  attributes: Attributes
+  id: number;
+  documentId: string;
+  title: string;
+  slug: string;
+  short_description: string;
+  content: Content[];
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
+  post_categories: PostCategory[];
+  thumbnail: Thumbnail[];
 }
 
-export interface Attributes {
-  title: string
-  slug: string
-  short_description: string
-  createdAt: string
-  updatedAt: string
-  publishedAt: string
-  content: string
-  thumbnail: Thumbnail
-  post_category: PostCategory
+export interface Content {
+  type: string;
+  children: Children[];
 }
 
-export interface Thumbnail {
-  data: Data
-}
-
-export interface Data {
-  id: number
-  attributes: Attributes2
-}
-
-export interface Attributes2 {
-  name: string
-  alternativeText: string | null
-  caption: string | null
-  width: number
-  height: number
-  formats: Formats
-  hash: string
-  ext: string
-  mime: string
-  size: number
-  url: string
-  previewUrl: string | null
-  provider: string
-  provider_metadata: string | null
-  createdAt: string
-  updatedAt: string
-}
-
-export interface Formats {
-  large: Large
-  small: Small
-  medium: Medium
-  thumbnail: Thumbnail2
-}
-
-export interface Large {
-  ext: string
-  url: string
-  hash: string
-  mime: string
-  name: string
-  path: string | null
-  size: number
-  width: number
-  height: number
-}
-
-export interface Small {
-  ext: string
-  url: string
-  hash: string
-  mime: string
-  name: string
-  path: string | null
-  size: number
-  width: number
-  height: number
-}
-
-export interface Medium {
-  ext: string
-  url: string
-  hash: string
-  mime: string
-  name: string
-  path: string | null
-  size: number
-  width: number
-  height: number
-}
-
-export interface Thumbnail2 {
-  ext: string
-  url: string
-  hash: string
-  mime: string
-  name: string
-  path: string | null
-  size: number
-  width: number
-  height: number
+export interface Children {
+  text: string;
+  type: string;
 }
 
 export interface PostCategory {
-  data: Data2
+  id: number;
+  documentId: string;
+  category_name: string;
+  description: string;
+  slug: string;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
 }
 
-export interface Data2 {
-  id: number
-  attributes: Attributes3
+export interface Thumbnail {
+  id: number;
+  documentId: string;
+  name: string;
+  alternativeText: string | number | null;
+  caption: string | number | null;
+  width: number;
+  height: number;
+  formats: Formats;
+  hash: string;
+  ext: string;
+  mime: string;
+  size: number;
+  url: string;
+  previewUrl: string | number | null;
+  provider: string;
+  provider_metadata: string | number | null;
+  createdAt: string;
+  updatedAt: string;
+  publishedAt: string;
 }
 
-export interface Attributes3 {
-  category_name: string
-  slug: string
-  createdAt: string
-  updatedAt: string
-  publishedAt: string
-  description: string
+export interface Formats {
+  large: Large;
+  small: Small;
+  medium: Medium;
+  thumbnail: Thumbnail2;
 }
 
-export interface Meta {
-  pagination: Pagination
+export interface Large {
+  ext: string;
+  url: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path: string | number | null;
+  size: number;
+  width: number;
+  height: number;
+  sizeInBytes: number;
 }
 
-export interface Pagination {
-  page: number
-  pageSize: number
-  pageCount: number
-  total: number
+export interface Small {
+  ext: string;
+  url: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path: string | number | null;
+  size: number;
+  width: number;
+  height: number;
+  sizeInBytes: number;
+}
+
+export interface Medium {
+  ext: string;
+  url: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path: string | number | null;
+  size: number;
+  width: number;
+  height: number;
+  sizeInBytes: number;
+}
+
+export interface Thumbnail2 {
+  ext: string;
+  url: string;
+  hash: string;
+  mime: string;
+  name: string;
+  path: string | number | null;
+  size: number;
+  width: number;
+  height: number;
+  sizeInBytes: number;
 }
