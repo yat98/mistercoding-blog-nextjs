@@ -1,11 +1,10 @@
-"use client";
-
-import { Heading } from "@chakra-ui/react";
+import Posts from '@/features/posts/Posts';
 
 export default function Home() {
   return (
     <>
-      <Heading color={"black"} size={"xl"}>Post</Heading>
+      <h1>Posts</h1>
+      <Posts />
     </>
-  )
+  );
 }
