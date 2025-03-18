@@ -7,7 +7,7 @@ export const revalidate = 3600;
 export default function Home() {
   return (
     <>
-      <PageTitle title="Post" />
+      <PageTitle title="Post" subtitle="The latest post list" />
       <Posts />
     </>
   );
