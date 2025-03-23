@@ -3,6 +3,7 @@
 import { Post } from '@/models/post';
 import { media } from '@/utils/media';
 import { Box, CardBody, CardRoot, Image, Text } from '@chakra-ui/react';
+import Link from 'next/link';
 
 interface Props {
   post: Post;
@@ -26,9 +27,11 @@ export default function PostItem({ post }: Props) {
       />
       <Box>
         <CardBody>
-          <Text fontWeight={'bold'} fontSize={'lg'} color={'gray.600'}>
-            {post.title}
-          </Text>
+          <Link href={`/post/${post.slug}`}>
+            <Text fontWeight={'bold'} fontSize={'lg'} color={'gray.600'}>
+              {post.title}
+            </Text>
+          </Link>
           <Text fontSize={'md'} color={'gray.600'}>
             {post.short_description}
           </Text>
