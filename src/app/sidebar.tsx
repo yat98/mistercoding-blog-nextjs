@@ -17,6 +17,16 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { FiMenu } from 'react-icons/fi';
 
+const isMenuActive = (pathName: string, url: string) => {
+  if (pathName === url) return true;
+
+  if (url === '/' && pathName.includes('/post/')) return true;
+
+  if (url !== '/' && pathName.includes(url)) return true;
+
+  return false;
+};
+
 interface LinkItemProps {
   name: string;
   url: string;
@@ -50,7 +60,7 @@ const NavItem = ({ url, children, ...rest }: NavItemProps) => {
         borderRadius={'lg'}
         role="group"
         cursor="pointer"
-        color={pathName === url ? 'yellow.400' : 'white'}
+        color={isMenuActive(pathName, url) ? 'yellow.400' : 'white'}
         _hover={{
           color: 'yellow.500',
           fontWeight: 'bold',
