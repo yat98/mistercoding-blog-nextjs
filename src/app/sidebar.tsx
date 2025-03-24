@@ -12,9 +12,17 @@ import {
   Link as LinkChakraUI,
   BoxProps,
   IconButton,
+  Center,
+  Icon,
 } from '@chakra-ui/react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import {
+  AiFillFacebook,
+  AiFillInstagram,
+  AiFillLinkedin,
+  AiFillYoutube,
+} from 'react-icons/ai';
 import { FiMenu } from 'react-icons/fi';
 
 const isMenuActive = (pathName: string, url: string) => {
@@ -126,6 +134,47 @@ export const SideBarContent = ({ onClose, ...rest }: SidebarProps) => {
           </NavItem>
         ))}
       </VStack>
+
+      <Center position={'absolute'} bottom={8} w={'full'}>
+        <Flex color={'white'} p={2}>
+          <Link href={'https://www.youtube.com'}>
+            <Icon
+              as={AiFillYoutube}
+              color={'red.600'}
+              fontSize={'3xl'}
+              mx={2}
+              target="_blank"
+            />
+          </Link>
+          <Link href={'https://www.instagram.com'}>
+            <Icon
+              as={AiFillInstagram}
+              color={'pink.600'}
+              fontSize={'3xl'}
+              mx={2}
+              target="_blank"
+            />
+          </Link>
+          <Link href={'https://www.linkedin.com'}>
+            <Icon
+              as={AiFillLinkedin}
+              color={'blue.600'}
+              fontSize={'3xl'}
+              mx={2}
+              target="_blank"
+            />
+          </Link>
+          <Link href={'https://www.facebook.com'}>
+            <Icon
+              as={AiFillFacebook}
+              color={'blue.400'}
+              fontSize={'3xl'}
+              mx={2}
+              target="_blank"
+            />
+          </Link>
+        </Flex>
+      </Center>
     </Box>
   );
 };
